@@ -2,14 +2,15 @@
 
 namespace Elephox\Inspector;
 
-use Elephox\Core\Registrar;
-use Elephox\Inspector\Commands\Routes;
+use Elephox\Core\Contract\Registrar;
+use Elephox\Core\Registrar as RegistrarTrait;
+use Elephox\Inspector\Commands\Handlers;
 
-class InspectorRegistrar
+class InspectorRegistrar implements Registrar
 {
-    use Registrar;
+    use RegistrarTrait;
 
     public $classes = [
-        Routes::class,
+        Handlers::class,
     ];
 }
