@@ -14,13 +14,17 @@ Simply add the `InspectorRegistrar` to your `Core` bootstrap:
 // bootstrap.php
 
 use Elephox\Core\Core;
-use Elephox\Inspector\InspectorRegistrar;
 
 // use your own Core class or use the default one
 $core = Core::create();
 
-// register the InspectorRegistrar along with your other registrars
-$core->checkRegistrar(InspectorRegistrar::class);
+
+// make sure you either register handlers from global scope...
+$core->registerGlobal();
+
+// ... or register the handlers yourself:
+$core->getHandlerContainer()->loadFromClass(\Elephox\Inspector\Commands\Handlers::class);
+
 
 // return the core instance
 return $core;
@@ -28,13 +32,15 @@ return $core;
 
 # Commands
 
+## `inspector:handlers`
+
 ```bash
 # list all registered handlers
 elephox inspector:handlers
 
 # ...is the same as filtering by all available types
-elephox inspector:handlers --type=route,command,event,exception
+elephox inspector:handlers --type=request,command,event,exception
 
 # list all registered route handlers by filtering by route type
-elephox inspector:handlers --type=route
+elephox inspector:handlers --type=request
 ```

@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "40d8bd6199d8333115b6b6d69b21947b",
+    "content-hash": "56b509c8da2b33ac8b800bbb16f7b4ec",
     "packages": [
         {
             "name": "elephox/collection",
-            "version": "v0.3.16",
+            "version": "v0.3.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elephox-dev/collection.git",
-                "reference": "16db30e3557acfd41538fe7ec7ef066288a6b5a6"
+                "reference": "504e8f09a96ddebc99acb27d51cff2e65d16ea3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elephox-dev/collection/zipball/16db30e3557acfd41538fe7ec7ef066288a6b5a6",
-                "reference": "16db30e3557acfd41538fe7ec7ef066288a6b5a6",
+                "url": "https://api.github.com/repos/elephox-dev/collection/zipball/504e8f09a96ddebc99acb27d51cff2e65d16ea3e",
+                "reference": "504e8f09a96ddebc99acb27d51cff2e65d16ea3e",
                 "shasum": ""
             },
             "require": {
@@ -49,23 +49,17 @@
             ],
             "description": "Elephox collection library.",
             "support": {
-                "source": "https://github.com/elephox-dev/collection/tree/v0.3.16"
+                "source": "https://github.com/elephox-dev/collection/tree/v0.3.17"
             },
-            "time": "2022-02-07T21:44:53+00:00"
+            "time": "2022-02-07T22:09:51+00:00"
         },
         {
             "name": "elephox/core",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/elephox-dev/core.git",
-                "reference": "053da62562ff76975f4d40a8c1e39de7e6abd5be"
-            },
+            "version": "dev-develop",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/elephox-dev/core/zipball/053da62562ff76975f4d40a8c1e39de7e6abd5be",
-                "reference": "053da62562ff76975f4d40a8c1e39de7e6abd5be",
-                "shasum": ""
+                "type": "path",
+                "url": "../framework/modules/Core",
+                "reference": "2749f70ad0ecea59705a576910a0c21799b1a10e"
             },
             "require": {
                 "elephox/collection": "^0.3",
@@ -96,7 +90,6 @@
                     "Elephox\\Core\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -107,24 +100,22 @@
                 }
             ],
             "description": "Elephox core library.",
-            "support": {
-                "issues": "https://github.com/elephox-dev/core/issues",
-                "source": "https://github.com/elephox-dev/core/tree/v0.3.16"
-            },
-            "time": "2022-02-07T21:44:58+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "elephox/di",
-            "version": "v0.3.16",
+            "version": "v0.3.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elephox-dev/di.git",
-                "reference": "6d8422dd6c35dcfcc797e9cf2f0f33afa7b206c7"
+                "reference": "5a39c7514cba17e63efc8da7df8899cad05cb4b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elephox-dev/di/zipball/6d8422dd6c35dcfcc797e9cf2f0f33afa7b206c7",
-                "reference": "6d8422dd6c35dcfcc797e9cf2f0f33afa7b206c7",
+                "url": "https://api.github.com/repos/elephox-dev/di/zipball/5a39c7514cba17e63efc8da7df8899cad05cb4b2",
+                "reference": "5a39c7514cba17e63efc8da7df8899cad05cb4b2",
                 "shasum": ""
             },
             "require": {
@@ -160,22 +151,22 @@
             ],
             "description": "Elephox dependency injection library.",
             "support": {
-                "source": "https://github.com/elephox-dev/di/tree/v0.3.16"
+                "source": "https://github.com/elephox-dev/di/tree/v0.3.17"
             },
-            "time": "2022-02-07T21:45:04+00:00"
+            "time": "2022-02-07T22:10:01+00:00"
         },
         {
             "name": "elephox/events",
-            "version": "v0.3.16",
+            "version": "v0.3.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elephox-dev/events.git",
-                "reference": "0c3a129549fdd501fdab095e0c7d7bd2d56507f5"
+                "reference": "1c4b10eb3699340a375bed609d896ad913d6f4b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elephox-dev/events/zipball/0c3a129549fdd501fdab095e0c7d7bd2d56507f5",
-                "reference": "0c3a129549fdd501fdab095e0c7d7bd2d56507f5",
+                "url": "https://api.github.com/repos/elephox-dev/events/zipball/1c4b10eb3699340a375bed609d896ad913d6f4b4",
+                "reference": "1c4b10eb3699340a375bed609d896ad913d6f4b4",
                 "shasum": ""
             },
             "require": {
@@ -208,22 +199,22 @@
             "description": "Elephox events library.",
             "support": {
                 "issues": "https://github.com/elephox-dev/events/issues",
-                "source": "https://github.com/elephox-dev/events/tree/v0.3.16"
+                "source": "https://github.com/elephox-dev/events/tree/v0.3.17"
             },
-            "time": "2022-02-07T21:45:09+00:00"
+            "time": "2022-02-07T22:10:06+00:00"
         },
         {
             "name": "elephox/files",
-            "version": "v0.3.16",
+            "version": "v0.3.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elephox-dev/files.git",
-                "reference": "e2908b809b9a7412e53e9bef500dc49efc52dba8"
+                "reference": "65a648496f2e998e63141c3c2a3a218b49a07754"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elephox-dev/files/zipball/e2908b809b9a7412e53e9bef500dc49efc52dba8",
-                "reference": "e2908b809b9a7412e53e9bef500dc49efc52dba8",
+                "url": "https://api.github.com/repos/elephox-dev/files/zipball/65a648496f2e998e63141c3c2a3a218b49a07754",
+                "reference": "65a648496f2e998e63141c3c2a3a218b49a07754",
                 "shasum": ""
             },
             "require": {
@@ -257,22 +248,22 @@
             "description": "Elephox files library.",
             "support": {
                 "issues": "https://github.com/elephox-dev/files/issues",
-                "source": "https://github.com/elephox-dev/files/tree/v0.3.16"
+                "source": "https://github.com/elephox-dev/files/tree/v0.3.17"
             },
-            "time": "2022-02-07T21:45:14+00:00"
+            "time": "2022-02-07T22:10:11+00:00"
         },
         {
             "name": "elephox/http",
-            "version": "v0.3.16",
+            "version": "v0.3.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elephox-dev/http.git",
-                "reference": "054c9f5f586f3f8f771568e992620ee170d420b6"
+                "reference": "97528100d2a3127d39fb8f5205a7ed26b10746f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elephox-dev/http/zipball/054c9f5f586f3f8f771568e992620ee170d420b6",
-                "reference": "054c9f5f586f3f8f771568e992620ee170d420b6",
+                "url": "https://api.github.com/repos/elephox-dev/http/zipball/97528100d2a3127d39fb8f5205a7ed26b10746f7",
+                "reference": "97528100d2a3127d39fb8f5205a7ed26b10746f7",
                 "shasum": ""
             },
             "require": {
@@ -301,23 +292,17 @@
             ],
             "description": "Elephox HTTP library.",
             "support": {
-                "source": "https://github.com/elephox-dev/http/tree/v0.3.16"
+                "source": "https://github.com/elephox-dev/http/tree/v0.3.17"
             },
-            "time": "2022-02-07T21:45:19+00:00"
+            "time": "2022-02-07T22:10:17+00:00"
         },
         {
             "name": "elephox/logging",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/elephox-dev/logging.git",
-                "reference": "cea7fa778d130902b16de30e50e30aeebd840c16"
-            },
+            "version": "dev-develop",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/elephox-dev/logging/zipball/cea7fa778d130902b16de30e50e30aeebd840c16",
-                "reference": "cea7fa778d130902b16de30e50e30aeebd840c16",
-                "shasum": ""
+                "type": "path",
+                "url": "../framework/modules/Logging",
+                "reference": "aa5adb22f0a76233c9f222c434695a4b7667431f"
             },
             "require": {
                 "jetbrains/phpstorm-attributes": "^1.0",
@@ -336,7 +321,6 @@
                     "Elephox\\Logging\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -347,24 +331,22 @@
                 }
             ],
             "description": "Elephox Logging library.",
-            "support": {
-                "issues": "https://github.com/elephox-dev/logging/issues",
-                "source": "https://github.com/elephox-dev/logging/tree/main"
-            },
-            "time": "2022-02-07T21:45:24+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "elephox/oor",
-            "version": "v0.3.16",
+            "version": "v0.3.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elephox-dev/oor.git",
-                "reference": "f84ba5292001585b1a342a0cf84ac0011cf4e744"
+                "reference": "c7b4241d589a8f9fe5575d8aaebd677d1f8f7a3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elephox-dev/oor/zipball/f84ba5292001585b1a342a0cf84ac0011cf4e744",
-                "reference": "f84ba5292001585b1a342a0cf84ac0011cf4e744",
+                "url": "https://api.github.com/repos/elephox-dev/oor/zipball/c7b4241d589a8f9fe5575d8aaebd677d1f8f7a3a",
+                "reference": "c7b4241d589a8f9fe5575d8aaebd677d1f8f7a3a",
                 "shasum": ""
             },
             "require": {
@@ -396,22 +378,22 @@
             "description": "Elephox Object-Oriented Revolution library.",
             "support": {
                 "issues": "https://github.com/elephox-dev/oor/issues",
-                "source": "https://github.com/elephox-dev/oor/tree/v0.3.16"
+                "source": "https://github.com/elephox-dev/oor/tree/v0.3.17"
             },
-            "time": "2022-02-07T21:45:29+00:00"
+            "time": "2022-02-07T22:10:27+00:00"
         },
         {
             "name": "elephox/stream",
-            "version": "v0.3.16",
+            "version": "v0.3.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elephox-dev/stream.git",
-                "reference": "b28e0a006936044b90147a344d83c17f0faa3052"
+                "reference": "eacf23e61277af771e87e0b1184d79676022dc8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elephox-dev/stream/zipball/b28e0a006936044b90147a344d83c17f0faa3052",
-                "reference": "b28e0a006936044b90147a344d83c17f0faa3052",
+                "url": "https://api.github.com/repos/elephox-dev/stream/zipball/eacf23e61277af771e87e0b1184d79676022dc8b",
+                "reference": "eacf23e61277af771e87e0b1184d79676022dc8b",
                 "shasum": ""
             },
             "require": {
@@ -444,22 +426,22 @@
             "description": "Elephox Stream library.",
             "support": {
                 "issues": "https://github.com/elephox-dev/stream/issues",
-                "source": "https://github.com/elephox-dev/stream/tree/v0.3.16"
+                "source": "https://github.com/elephox-dev/stream/tree/v0.3.17"
             },
-            "time": "2022-02-07T21:45:34+00:00"
+            "time": "2022-02-07T22:10:32+00:00"
         },
         {
             "name": "elephox/support",
-            "version": "v0.3.16",
+            "version": "v0.3.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elephox-dev/support.git",
-                "reference": "9a96095aaeb7b6689996cd50f480897c5cc5c369"
+                "reference": "4ef1ca8bfef2a9e6bdfca77834a8287ac3a7153f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elephox-dev/support/zipball/9a96095aaeb7b6689996cd50f480897c5cc5c369",
-                "reference": "9a96095aaeb7b6689996cd50f480897c5cc5c369",
+                "url": "https://api.github.com/repos/elephox-dev/support/zipball/4ef1ca8bfef2a9e6bdfca77834a8287ac3a7153f",
+                "reference": "4ef1ca8bfef2a9e6bdfca77834a8287ac3a7153f",
                 "shasum": ""
             },
             "require": {
@@ -492,9 +474,9 @@
             ],
             "description": "Elephox support library.",
             "support": {
-                "source": "https://github.com/elephox-dev/support/tree/v0.3.16"
+                "source": "https://github.com/elephox-dev/support/tree/v0.3.17"
             },
-            "time": "2022-02-07T21:45:40+00:00"
+            "time": "2022-02-07T22:10:37+00:00"
         },
         {
             "name": "jetbrains/phpstorm-attributes",
