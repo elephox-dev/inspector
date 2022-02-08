@@ -1,6 +1,7 @@
 {
     "name": "elephox/inspector",
     "description": "Commands and endpoints to inspect your Elephox application.",
+    "license": "MIT",
     "type": "library",
     "minimum-stability": "dev",
     "prefer-stable": true,
