@@ -16,45 +16,45 @@ use Elephox\Logging\GenericSinkLogger;
 #[CommandHandler('/^inspector:handlers(?:\s*--type=(?<types>[^\s]*))?$/')]
 class Handlers implements Registrar
 {
-    public function __invoke(HandlerContainer $handlerContainer, Logger $logger, ?string $types = null)
-    {
-        $logger->info("Following handlers were registered:");
+	public function __invoke(HandlerContainer $handlerContainer, Logger $logger, ?string $types = null)
+	{
+		$logger->info("Following handlers were registered:");
 
-        $bindings = $handlerContainer
-            ->getHandlers()
-            ->orderByDescending(static fn(HandlerBinding $b) => $b->getHandlerMeta()->getWeight());
+		$bindings = $handlerContainer
+			->getHandlers()
+			->orderByDescending(static fn(HandlerBinding $b) => $b->getHandlerMeta()->getWeight());
 
-        if ($types !== null) {
-            $requestedTypes = explode(',', strtolower($types));
-            $filterTypes = [];
-            foreach (ActionType::cases() as $actionType) {
-                if (in_array(strtolower($actionType->getName()), $requestedTypes, true)) {
-                    $filterTypes[] = $actionType;
-                }
-            }
+		if ($types !== null) {
+			$requestedTypes = explode(',', strtolower($types));
+			$filterTypes = [];
+			foreach (ActionType::cases() as $actionType) {
+				if (in_array(strtolower($actionType->getName()), $requestedTypes, true)) {
+					$filterTypes[] = $actionType;
+				}
+			}
 
-            $bindings = $bindings->where(static fn(HandlerBinding $b) => in_array($b->getHandlerMeta()->getType(), $filterTypes, true));
-        }
+			$bindings = $bindings->where(static fn(HandlerBinding $b) => in_array($b->getHandlerMeta()->getType(), $filterTypes, true));
+		}
 
-        /** @var \Elephox\Core\Handler\Contract\HandlerBinding $binding */
-        foreach ($bindings as $binding) {
-            $logger->info(sprintf(
-                "- [%s, %d] %s",
-                $binding->getHandlerMeta()->getType()->getName(),
-                $binding->getHandlerMeta()->getWeight(),
-                $binding->getFunctionName()
-            ));
-        }
-    }
+		/** @var \Elephox\Core\Handler\Contract\HandlerBinding $binding */
+		foreach ($bindings as $binding) {
+			$logger->info(sprintf(
+				"- [%s, %d] %s",
+				$binding->getHandlerMeta()->getType()->getName(),
+				$binding->getHandlerMeta()->getWeight(),
+				$binding->getFunctionName()
+			));
+		}
+	}
 
-    public function registerAll(Container $container): void
-    {
-        if (!$container->has(Logger::class)) {
-            $container->register(Logger::class, GenericSinkLogger::class);
-        }
+	public function registerAll(Container $container): void
+	{
+		if (!$container->has(Logger::class)) {
+			$container->register(Logger::class, GenericSinkLogger::class);
+		}
 
-        if (!$container->has(Sink::class)) {
-            $container->register(Sink::class, ConsoleSink::class);
-        }
-    }
+		if (!$container->has(Sink::class)) {
+			$container->register(Sink::class, ConsoleSink::class);
+		}
+	}
 }
