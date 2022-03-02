@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0599c5532093a7191a641f3074831b0",
+    "content-hash": "a033bcd843efadf19a95f754f6feae65",
     "packages": [
         {
             "name": "elephox/collection",
@@ -55,7 +55,7 @@
         },
         {
             "name": "elephox/core",
-            "version": "v0.3.24",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elephox-dev/core.git",
@@ -214,7 +214,7 @@
         },
         {
             "name": "elephox/files",
-            "version": "v0.3.24",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elephox-dev/files.git",
@@ -259,7 +259,7 @@
             "description": "Elephox files library.",
             "support": {
                 "issues": "https://github.com/elephox-dev/files/issues",
-                "source": "https://github.com/elephox-dev/files/tree/v0.3.24"
+                "source": "https://github.com/elephox-dev/files/tree/main"
             },
             "time": "2022-03-01T03:59:24+00:00"
         },
@@ -312,7 +312,7 @@
         },
         {
             "name": "elephox/logging",
-            "version": "v0.3.24",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elephox-dev/logging.git",
@@ -693,7 +693,11 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "elephox/core": 20,
+        "elephox/files": 20,
+        "elephox/logging": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
