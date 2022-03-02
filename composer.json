@@ -7,9 +7,9 @@
     "prefer-stable": true,
     "require": {
         "php": ">=8.1",
-        "elephox/core": "1.x-dev",
-        "elephox/files": "1.x-dev",
-        "elephox/logging": "1.x-dev",
+        "elephox/core": "^0.3 || ^1.0",
+        "elephox/files": "^0.3 || ^1.0",
+        "elephox/logging": "^0.3 || ^1.0",
         "jetbrains/phpstorm-attributes": "^1.0",
         "ext-ctype": "*"
     },
