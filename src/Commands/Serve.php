@@ -5,7 +5,7 @@ namespace Elephox\Inspector\Commands;
 
 use Elephox\Core\Context\Contract\CommandLineContext;
 use Elephox\Core\Handler\Attribute\CommandHandler;
-use Elephox\Files\Path;
+use Elephox\Files\Directory;
 use Elephox\Logging\Contract\Logger;
 use InvalidArgumentException;
 use RuntimeException;
@@ -20,14 +20,15 @@ class Serve
 	{
 		$args = $context->getArgs()
 			->select(fn(string $arg) => explode('=', $arg, 2))
-			->select(fn(array &$arg) => $arg[0] = strtolower(ltrim($arg[0], '-')))
-			->toArray();
+			->select(fn(array &$arg) => $arg[0] = strtolower(ltrim($arg[0], '-')));
 
 		$host = 'localhost';
 		$port = 8000;
-		$cwd = getcwd();
-		$public = Path::join($cwd, 'public');
-		$root = file_exists($public) ? $public : $cwd;
+		$cwd = new Directory(getcwd());
+		do {
+			$public = $cwd->getChild('public');
+		} while ((!$public->exists() && $cwd = $cwd->getParent()) || $cwd->isRoot());
+		$root = $public->exists() ? $public : $cwd;
 
 		foreach ($args as $arg) {
 			switch ($arg[0]) {
@@ -46,9 +47,9 @@ class Serve
 					}
 					break;
 				case 'root':
-					$root = $arg[1];
+					$root = new Directory($arg[1]);
 
-					if (!file_exists($root)) {
+					if (!$root->exists()) {
 						throw new InvalidArgumentException('Root directory does not exist');
 					}
 					break;
@@ -56,9 +57,11 @@ class Serve
 		}
 
 		$process = proc_open(
-			sprintf("%s -S %s:%d -t %s", escapeshellarg(PHP_BINARY), $host, $port, $root),
+			sprintf("%s -S %s:%d", escapeshellarg(PHP_BINARY), $host, $port),
 			[STDIN],
-			$pipes
+			$pipes,
+			$root->getPath(),
+			array_merge(getenv(), $_ENV),
 		);
 
 		register_shutdown_function(static fn (): bool => proc_terminate($process));
