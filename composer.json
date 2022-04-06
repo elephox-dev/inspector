@@ -6,19 +6,15 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=8.1",
-        "elephox/core": "0.4.x-dev || 1.x-dev",
-        "elephox/files": "0.4.x-dev || 1.x-dev",
-        "elephox/logging": "0.4.x-dev || 1.x-dev",
+        "php": "^8.1 <8.3",
+        "elephox/console": "dev-develop",
+        "elephox/web": "dev-develop",
         "jetbrains/phpstorm-attributes": "^1.0",
         "ext-ctype": "*"
     },
     "autoload": {
         "psr-4": {
             "Elephox\\Inspector\\": "src/"
-        },
-        "files": [
-            "autoregister.php"
-        ]
+        }
     }
 }

@@ -11,23 +11,19 @@
 Simply add the `InspectorRegistrar` to your `Core` bootstrap:
 
 ```php
-// bootstrap.php
+// bin/run
 
-use Elephox\Core\Core;
+// create your console app builder
+$builder = ConsoleApplicationBuilder::create()
+	->addLogging()
+	->addWhoops()
+;
 
-// use your own Core class or use the default one
-$core = Core::create();
+// load your app commands
+$builder->commands->loadFromNamespace("App\\Commands");
 
-
-// make sure you either register handlers from global scope...
-$core->registerGlobal();
-
-// ... or register the handlers yourself:
-$core->getHandlerContainer()->loadFromClass(\Elephox\Inspector\Commands\Handlers::class);
-
-
-// return the core instance
-return $core;
+// load the inspector commands
+$builder->commands->loadFromNamespace("Elephox\\Inspector\\Commands");
 ```
 
 # Commands
@@ -35,12 +31,9 @@ return $core;
 ## `inspector:handlers`
 
 ```bash
-# list all registered handlers
-elephox inspector:handlers
+# list all application routes
+bin/run routes
 
-# ...is the same as filtering by all available types
-elephox inspector:handlers --type=request,command,event,exception
-
-# list all registered route handlers by filtering by route type
-elephox inspector:handlers --type=request
+# serve your application on port 8080
+bin/run serve --port=8080
 ```
