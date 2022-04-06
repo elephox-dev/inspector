@@ -571,12 +571,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/elephox-dev/web.git",
-                "reference": "88146f57c7b38efc1f697d5cb93c95cc55e27de4"
+                "reference": "0101c53f52aec7dd3af2c2a76a86539339723e1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elephox-dev/web/zipball/88146f57c7b38efc1f697d5cb93c95cc55e27de4",
-                "reference": "88146f57c7b38efc1f697d5cb93c95cc55e27de4",
+                "url": "https://api.github.com/repos/elephox-dev/web/zipball/0101c53f52aec7dd3af2c2a76a86539339723e1c",
+                "reference": "0101c53f52aec7dd3af2c2a76a86539339723e1c",
                 "shasum": ""
             },
             "require": {
@@ -616,7 +616,7 @@
                 "issues": "https://github.com/elephox-dev/web/issues",
                 "source": "https://github.com/elephox-dev/web/tree/develop"
             },
-            "time": "2022-04-06T21:31:27+00:00"
+            "time": "2022-04-06T22:32:22+00:00"
         },
         {
             "name": "jetbrains/phpstorm-attributes",

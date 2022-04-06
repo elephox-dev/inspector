@@ -7,7 +7,9 @@ use Elephox\Collection\Enumerable;
 use Elephox\Console\Command\CommandInvocation;
 use Elephox\Console\Command\CommandTemplateBuilder;
 use Elephox\Console\Command\Contract\CommandHandler;
+use Elephox\Http\RequestMethod;
 use Elephox\Logging\Contract\Logger;
+use Elephox\Web\Routing\Contract\RouteHandler;
 use Elephox\Web\Routing\Contract\Router;
 
 class RoutesCommand implements CommandHandler
@@ -32,14 +34,25 @@ class RoutesCommand implements CommandHandler
 		$routes = Enumerable::from($this->router->getRouteHandlers());
 
 		$this->logger->info('Following routes where found:');
+		$this->logger->info('<cyan>weight</cyan> <green>methods</green> <blue>path</blue> => <yellow>handler</yellow>');
 
+		/**
+		 * @var RouteHandler $route
+		 */
 		foreach ($routes->orderByDescending(fn($r) => $r->getSourceAttribute()->getWeight()) as $route) {
 			$attribute = $route->getSourceAttribute();
+			$methods = $attribute->getRequestMethods()->select(fn(RequestMethod $m) => $m->name)->toList();
+			if (empty($methods)) {
+				$methods  = ['ANY'];
+			}
+
 			$this->logger->info(sprintf(
-				"(%d) [%s] %s",
+				"<cyan>%s</cyan> <green>%s</green> <blue>%s</blue> => <yellow>%s::%s</yellow>",
 				$attribute->getWeight(),
-				implode(', ', $attribute->getRequestMethods()->select(fn($m) => (string)$m)->toList()),
+				implode(', ', $methods),
 				$attribute->getPath(),
+				$route->getAttributeClass(),
+				$route->getAttributeMethod(),
 			));
 		}
 
