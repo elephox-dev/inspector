@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Elephox\Inspector\Commands;
 
+use Elephox\Collection\Enumerable;
 use Elephox\Console\Command\CommandInvocation;
 use Elephox\Console\Command\CommandTemplateBuilder;
 use Elephox\Console\Command\Contract\CommandHandler;
@@ -28,10 +29,18 @@ class RoutesCommand implements CommandHandler
 
 	public function handle(CommandInvocation $command): int|null
 	{
-		$routes = $this->router->getRouteHandlers();
+		$routes = Enumerable::from($this->router->getRouteHandlers());
 
-		foreach ($routes as $route) {
-			$this->logger->info($route->getSourceAttribute()->getPath());
+		$this->logger->info('Following routes where found:');
+
+		foreach ($routes->orderByDescending(fn($r) => $r->getSourceAttribute()->getWeight()) as $route) {
+			$attribute = $route->getSourceAttribute();
+			$this->logger->info(sprintf(
+				"(%d) [%s] %s",
+				$attribute->getWeight(),
+				implode(', ', $attribute->getRequestMethods()->select(fn($m) => (string)$m)->toList()),
+				$attribute->getPath(),
+			));
 		}
 
 		return 0;

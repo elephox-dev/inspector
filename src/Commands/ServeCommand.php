@@ -23,9 +23,9 @@ class ServeCommand implements CommandHandler
 		$builder
 			->name('serve')
 			->description('Starts the PHP built-in webserver for your application')
-			->argument('host', 'Host to bind to', 'localhost')
-			->argument('port', 'Port to bind to', '8000')
-			->argument('root', 'Root directory to serve', APP_ROOT . '/public')
+			->argument('host', 'Host to bind to', 'localhost', false)
+			->argument('port', 'Port to bind to', '8000', false)
+			->argument('root', 'Root directory to serve', APP_ROOT . '/public', false)
 		;
 	}
 

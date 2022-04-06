@@ -28,8 +28,6 @@ $builder->commands->loadFromNamespace("Elephox\\Inspector\\Commands");
 
 # Commands
 
-## `inspector:handlers`
-
 ```bash
 # list all application routes
 bin/run routes
