@@ -26,7 +26,7 @@ class ServeCommand implements CommandHandler
 			->argument('host', 'Host to bind to', 'localhost', false)
 			->argument('port', 'Port to bind to (>=1024, <=65535)', '8000', false)
 			->argument('root', 'Root directory to serve from', APP_ROOT . '/public', false)
-			->argument('env', 'The environment to use (development, staging, production)', 'development', false)
+			->argument('env', 'The environment to use (e.g. development, staging or production)', 'development', false)
 		;
 	}
 
@@ -51,10 +51,6 @@ class ServeCommand implements CommandHandler
 		}
 
 		$root = realpath($root);
-
-		if (!in_array($env, ['development', 'staging', 'production'])) {
-			throw new InvalidArgumentException('Environment must be one of: development, staging or production');
-		}
 
 		$this->logger->info('Starting PHP built-in webserver on ' . $host . ':' . $port);
 
