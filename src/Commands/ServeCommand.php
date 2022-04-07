@@ -24,8 +24,9 @@ class ServeCommand implements CommandHandler
 			->name('inspector:serve')
 			->description('Starts the PHP built-in webserver for your application')
 			->argument('host', 'Host to bind to', 'localhost', false)
-			->argument('port', 'Port to bind to', '8000', false)
-			->argument('root', 'Root directory to serve', APP_ROOT . '/public', false)
+			->argument('port', 'Port to bind to (>=1024, <=65535)', '8000', false)
+			->argument('root', 'Root directory to serve from', APP_ROOT . '/public', false)
+			->argument('env', 'The environment to use (development, staging, production)', 'development', false)
 		;
 	}
 
@@ -34,6 +35,7 @@ class ServeCommand implements CommandHandler
 		$host = $command->host;
 		$port = $command->port;
 		$root = $command->root;
+		$env = $command->env;
 
 		if (!ctype_digit($port)) {
 			throw new InvalidArgumentException('Port must be a number');
@@ -50,6 +52,10 @@ class ServeCommand implements CommandHandler
 
 		$root = realpath($root);
 
+		if (!in_array($env, ['development', 'staging', 'production'])) {
+			throw new InvalidArgumentException('Environment must be one of: development, staging or production');
+		}
+
 		$this->logger->info('Starting PHP built-in webserver on ' . $host . ':' . $port);
 
 		$process = proc_open(
@@ -57,7 +63,7 @@ class ServeCommand implements CommandHandler
 			[STDIN],
 			$pipes,
 			$root,
-			array_merge(getenv(), $_ENV),
+			array_merge(getenv(), $_ENV, ['APP_ENV' => $env])
 		);
 
 		if ($process === false) {
@@ -73,7 +79,7 @@ class ServeCommand implements CommandHandler
 
 		register_shutdown_function(static fn(): bool => proc_terminate($process));
 
-		$this->logger->info('Server process started', ['pid' => $status['pid'], 'command' => $status['command']]);
+		$this->logger->info('Server process started', ['pid' => $status['pid'], 'env' => $env, 'command' => $status['command']]);
 
 		while ($status = proc_get_status($process)) {
 			if (!$status['running']) {
