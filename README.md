@@ -30,8 +30,8 @@ $builder->commands->loadFromNamespace("Elephox\\Inspector\\Commands");
 
 ```bash
 # list all application routes
-bin/run routes
+phox inspector:routes
 
-# serve your application on port 8080
-bin/run serve --port=8080
+# serve your application on port 8080 in production mode
+phox inspector:serve --port=8080 --env=production
 ```
