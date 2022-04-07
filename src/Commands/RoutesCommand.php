@@ -23,7 +23,7 @@ class RoutesCommand implements CommandHandler
 	public function configure(CommandTemplateBuilder $builder): void
 	{
 		$builder
-			->name('routes')
+			->name('inspector:routes')
 			->description('List all routes')
 		;
 	}

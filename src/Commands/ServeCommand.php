@@ -21,7 +21,7 @@ class ServeCommand implements CommandHandler
 	public function configure(CommandTemplateBuilder $builder): void
 	{
 		$builder
-			->name('serve')
+			->name('inspector:serve')
 			->description('Starts the PHP built-in webserver for your application')
 			->argument('host', 'Host to bind to', 'localhost', false)
 			->argument('port', 'Port to bind to', '8000', false)
