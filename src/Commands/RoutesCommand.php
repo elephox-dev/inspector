@@ -33,7 +33,7 @@ class RoutesCommand implements CommandHandler
 		$routes = Enumerable::from($this->router->getRouteHandlers());
 
 		$this->logger->info('Following routes where found:');
-		$this->logger->info('<cyan>weight</cyan> <blue>path</blue> => <yellow>handler</yellow>');
+		$this->logger->info('<cyan>weight</cyan> <blue>path regex</blue> => <yellow>handler</yellow>');
 
 		/**
 		 * @var RouteHandler $route
@@ -44,7 +44,7 @@ class RoutesCommand implements CommandHandler
 			$this->logger->info(sprintf(
 				"<cyan>%s</cyan> <blue>%s</blue> => <yellow>%s</yellow>",
 				$attribute->getWeight(),
-				$attribute->getPath(),
+				$route->getPathRegex(),
 				$route,
 			));
 		}
