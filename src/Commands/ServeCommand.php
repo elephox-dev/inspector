@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Elephox\Inspector\Commands;
 
+use Elephox\Configuration\Contract\Environment;
 use Elephox\Console\Command\CommandInvocation;
 use Elephox\Console\Command\CommandTemplateBuilder;
 use Elephox\Console\Command\Contract\CommandHandler;
@@ -14,18 +15,21 @@ class ServeCommand implements CommandHandler
 {
 	public function __construct(
 		private readonly Logger $logger,
+		private readonly Environment $environment,
 	)
 	{
 	}
 
 	public function configure(CommandTemplateBuilder $builder): void
 	{
+		$publicDir = $this->environment->getRootDirectory()->getDirectory('public');
+
 		$builder
 			->name('inspector:serve')
 			->description('Starts the PHP built-in webserver for your application')
 			->argument('host', 'Host to bind to', 'localhost', false)
 			->argument('port', 'Port to bind to (>=1024, <=65535)', '8000', false)
-			->argument('root', 'Root directory to serve from', APP_ROOT . '/public', false)
+			->argument('root', 'Root directory to serve from', $publicDir->getPath(), false)
 			->argument('env', 'The environment to use (e.g. development, staging or production)', 'development', false)
 		;
 	}
