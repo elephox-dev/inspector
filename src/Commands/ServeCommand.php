@@ -46,8 +46,8 @@ class ServeCommand implements CommandHandler
 		}
 
 		$port = (int) $port;
-		if ($port < 1024 || $port > 65535) {
-			throw new InvalidArgumentException('Port must be between 1024 and 65535');
+		if ($port < 1 || $port > 65535) {
+			throw new InvalidArgumentException('Port must be between 1 and 65535');
 		}
 
 		if (!is_dir($root)) {
