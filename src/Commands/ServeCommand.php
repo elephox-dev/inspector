@@ -25,7 +25,7 @@ class ServeCommand implements CommandHandler
 		$publicDir = $this->environment->getRootDirectory()->getDirectory('public');
 
 		$builder
-			->name('inspector:serve')
+			->name('serve')
 			->description('Starts the PHP built-in webserver for your application')
 			->argument('host', 'Host to bind to', 'localhost', false)
 			->argument('port', 'Port to bind to (>=1024, <=65535)', '8000', false)
